@@ -1,0 +1,166 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title></title>  
+</head>  
+<body> 
+
+{% with messages = get_flashed_messages() %}  
+   {% if messages %}  
+         {% for message in messages %}  
+              <p>{{ message }}</p>  
+         {% endfor %}  
+   {% endif %}  
+{% endwith %} 
+
+
+<h1>Predictor Form Page</h1>  
+
+
+      <form action='/dashboard' method='POST'>
+         
+         <div class="form-group">
+            {{ form.patient_name.label(class="form-control-label") }}
+            {% if form.patient_name.errors %}
+               {{ form.patient_name(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.patient_name.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.patient_name(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.age.label(class="form-control-label") }}
+            {% if form.age.errors %}
+               {{ form.age(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.age.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.age(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.weight.label(class="form-control-label") }}
+            {% if form.weight.errors %}
+               {{ form.weight(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.weight.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.weight(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.bmi.label(class="form-control-label") }}
+            {% if form.bmi.errors %}
+               {{ form.bmi(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.bmi.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.bmi(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.blood_pressure.label(class="form-control-label") }}
+            {% if form.blood_pressure.errors %}
+               {{ form.blood_pressure(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.blood_pressure.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.blood_pressure(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.insulin.label(class="form-control-label") }}
+            {% if form.insulin.errors %}
+               {{ form.insulin(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.insulin.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.insulin(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.cardio_stress_level.label(class="form-control-label") }}
+            {% if form.cardio_stress_level.errors %}
+               {{ form.cardio_stress_level(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.cardio_stress_level.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.cardio_stress_level(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.liver_stress_level.label(class="form-control-label") }}
+            {% if form.liver_stress_level.errors %}
+               {{ form.liver_stress_level(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.liver_stress_level.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.liver_stress_level (class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+         <div class="form-group">
+            {{ form.smoking_history_in_years.label(class="form-control-label") }}
+            {% if form.smoking_history_in_years.errors %}
+               {{ form.smoking_history_in_years(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.smoking_history_in_years.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.smoking_history_in_years(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+
+      <div class="form-group">
+               {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+      </form>
+         
+
+   
+
+   <a href="{{url_for('logout')}}">Logout</a>
+
+   <a href="{{url_for('predictor')}}">Home</a>
+   <a href="{{url_for('dashboard')}}">Last Patient Report</a>
+ 
+   <a href="{{url_for('profile')}}">Profile</a>
+
+
+
+</body>  
+</html>

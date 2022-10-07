@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title></title>  
+</head>  
+<body>  
+   {% with messages = get_flashed_messages() %}  
+   {% if messages %}  
+         {% for message in messages %}  
+              <p>{{ message }}</p>  
+         {% endfor %}  
+   {% endif %}  
+{% endwith %}  
+<h1>Reset Request</h1>  
+      <form action='' method='POST'>
+         {{ form.csrf_token }}
+         <div class="form-group">
+            {{ form.email.label(class="form-control-label") }}
+            {% if form.email.errors %}
+               {{ form.email(class="form-control form-control-lg is-invalid") }}
+               <div class="invalid-feedback">
+                     {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                     {% endfor %}
+               </div>
+            {% else %}
+               {{ form.email(class="form-control form-control-lg") }}
+            {% endif %}
+         </div>
+         
+      <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+   </form>
+  
+
+<a href="{{url_for('login')}}">Return To Login</a>
+</body>  
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>  
+<body>  
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+          {% for message in messages %}  
+               <p>{{ message }}</p>  
+          {% endfor %}  
+    {% endif %}  
+ {% endwith %}  
+<h1>Profile Page</h1>  
+
+<!------ Include the above in your HEAD tag ---------->
+
+<form action='' method='POST'>
+    {{ form.csrf_token }}
+    <div class="form-group">
+       {{ form.email.label(class="form-control-label") }}
+       {% if form.email.errors %}
+          {{ form.email(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                   <span>{{ error }}</span>
+                {% endfor %}
+          </div>
+       {% else %}
+          {{ form.email(class="form-control form-control-lg") }}
+       {% endif %}
+    </div>
+    <div class="form-group">
+       {{ form.username.label(class="form-control-label") }}
+       {% if form.username.errors %}
+          {{ form.username }}
+          <div class="invalid-feedback">
+                {% for error in form.username.errors %}
+                   <span>{{ error }}</span>
+                {% endfor %}
+          </div>
+       {% else %}
+          {{ form.username(class="form-control form-control-lg") }}
+       {% endif %}
+    </div>
+ 
+ <div class="form-group">
+       {{ form.submit(class="btn btn-outline-info") }}
+ </div>
+ <a href="{{url_for('profile')}}">Profile</a>
+<a href="{{url_for('predictor')}}">Home</a>
+<a href="{{url_for('dashboard')}}">Last Patient Report</a>
+<a href="{{url_for('logout')}}">Logout</a>
+</body>  
+</html>

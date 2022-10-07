@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <link rel="stylesheet" href="styles.css">
+    <title></title>  
+</head>  
+<body>  
+{% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+          {% for message in messages %}  
+               <p>{{ message }}</p>  
+          {% endfor %}  
+    {% endif %}  
+{% endwith %}   
+<h1>Dashboard</h1>  
+<h2>Probability Of Having Zetta Disease is {{disease_probability}}</h2>
+<a href="{{url_for('predictor')}}">Home</a>
+<a href="{{url_for('dashboard')}}">Last Patient Report</a>
+<a href="{{url_for('logout')}}">Logout</a>
+<a href="{{url_for('profile')}}">Profile</a>
+
+</body>  
+</html>
