@@ -167,6 +167,6 @@ def reset_token(token):
 
 def main(event,context):
     app.run(debug=True)
-    print("First changes for testing")
+    print("Second changes for testing")
 if __name__ == '__main__':  
    main()
