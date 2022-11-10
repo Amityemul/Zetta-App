@@ -165,6 +165,7 @@ def reset_token(token):
         return redirect(url_for('login'))
     return render_template('reset_token.html', title='Reset Password', form=form)
 
-
+def main(event,context):
+    app.run(debug=True)
 if __name__ == '__main__':  
-   app.run(debug = True)  
+   main()
