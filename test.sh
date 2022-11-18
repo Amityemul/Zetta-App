@@ -1,1 +1,2 @@
-echo "hello cicd "
+#1/bin/bash
+echo "hello world "
